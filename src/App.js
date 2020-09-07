@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import phones from './data/phones.json'
+import ListView from './components/ListView'
+import Summary from './components/Summary'
+import Histogram from './components/Histogram'
+import Linechart from './components/Linechart'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Summary phones={phones} />
+      <Histogram phones={phones} />
+      <Linechart phones={phones} />
+      <ListView phones={phones} />
     </div>
-  );
+  )
 }
 
 export default App;
+
