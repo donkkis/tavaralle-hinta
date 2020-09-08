@@ -16,10 +16,9 @@ const Linechart = ({ phones }) => {
         const mm = p.time_stamp.slice(14)
         return new Date(yyyy, MM-1, dd, HH, mm)
     })
-    
+
     const prices = phones.map(p => p.price)
     const data = zip(dateAxis, prices).map(dp => ({x: dp[0], y: dp[1] }))
-    console.log(data)
 
     return (
         <div>
