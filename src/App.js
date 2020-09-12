@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Summary from './components/Summary'
 import Histogram from './components/Histogram'
 import Linechart from './components/Linechart'
+import ScatterPlot from './components/ScatterPlot'
 import { Container, Grid, Paper, Button, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles'
 import axios from 'axios';
@@ -67,7 +68,7 @@ const App = () => {
           </Grid>
           <Grid item sm={6} xs={12}>
             <Paper className={classes.paper} elevation={3}>
-              <Linechart phones={phones} />
+              <ScatterPlot phones={phones} />
             </Paper>
           </Grid>
         </Grid>
