@@ -8,6 +8,10 @@ const labels = ({ datum }) => (
 
 const Linechart = ({ phones }) => {
 
+    if (!phones) {
+        return <div>Loading...</div>
+    }
+
     const dateAxis = phones.map(p => {
         const dd = p.time_stamp.slice(0, 2)
         const MM = p.time_stamp.slice(3, 5)

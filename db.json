@@ -1,4 +1,7 @@
-[
+{
+
+"listings": [
+
     {
         "category": "puhelimet_ja_tarvikkeet",
         "id": "item_73962463",
@@ -957,3 +960,5 @@
         "title": "Samsung s9 64GB"
     }
 ]
+
+}

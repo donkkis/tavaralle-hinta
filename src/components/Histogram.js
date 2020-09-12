@@ -2,6 +2,10 @@ import React from 'react'
 import { VictoryChart, VictoryHistogram, VictoryVoronoiContainer } from 'victory' 
 
 const Histogram = ({ phones }) => {
+
+    if (!phones) {
+        return <div>Loading...</div>
+    }
     
     const labels = ({ datum }) => (
         `${Math.round(datum.x, 2)}, ${Math.round(datum.y, 2)}`
