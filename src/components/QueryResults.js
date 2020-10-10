@@ -5,7 +5,7 @@ import Linechart from './Linechart'
 import ScatterPlot from './ScatterPlot'
 import { Grid, Paper } from '@material-ui/core'
 
-const QueryResults = ({ classes, phones }) => {
+const QueryResults = React.memo(({ classes, phones }) => {
     return <>
         <Grid item sm={6} xs={12}>
             <Paper className={classes.paper} elevation={3}>
@@ -28,6 +28,6 @@ const QueryResults = ({ classes, phones }) => {
             </Paper>
         </Grid>
     </>
-}
+})
 
 export default QueryResults
