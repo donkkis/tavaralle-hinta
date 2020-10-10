@@ -7,12 +7,11 @@ const labels = ({ datum }) => (
 )
 
 const Linechart = ({ phones }) => {
-
     if (!phones) {
         return <div>Loading...</div>
     }
-
-    const dateAxis = phones.map(p => {
+    const pricedPhones = phones.filter(p => p.price)
+    const dateAxis = pricedPhones.map(p => {
         const dd = p.time_stamp.slice(0, 2)
         const MM = p.time_stamp.slice(3, 5)
         const yyyy = p.time_stamp.slice(6, 10)
@@ -21,7 +20,7 @@ const Linechart = ({ phones }) => {
         return new Date(yyyy, MM-1, dd, HH, mm)
     })
 
-    const prices = phones.map(p => p.price)
+    const prices = pricedPhones.map(p => p.price)
     const data = zip(dateAxis, prices).map(dp => ({x: dp[0], y: dp[1] }))
 
     return (
