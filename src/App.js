@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Grid, Button, TextField } from '@material-ui/core';
+import InputBase from '@material-ui/core/InputBase';
 import { makeStyles } from '@material-ui/core/styles'
 import QueryResults from './components/QueryResults'
 import axios from 'axios';
+import './Styles.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
     height: '90%'
   },
+  searchbar: {
+    align: 'center'
+  }
 }));
 
 
@@ -32,17 +37,31 @@ const App = () => {
   }
  
   return (
-    <div>
+    <div className='home__body'>
       <Container>
         <Grid container spacing={3}>
-          <Grid item xs={12}>
+          <Grid item id="search-label" xs={12} align='center'>
             <h1>Käytettyjen puhelinten hintatiedot</h1>
             Kokeile esim. hakuja: "Samsung", "Huawei", "iPhone"
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} align='center'>
             <form onSubmit={handleQuerySubmit}>
-            <TextField id="outlined-search" label="Search field" type="search" variant="outlined" value={query} onChange={event => setQuery(event.target.value)} />
-            <Button variant="contained" color="primary" type="submit">Search</Button>
+            <div className='search__input'>
+              <InputBase 
+                id="outlined-search" 
+                label="Search" 
+                type="search" 
+                variant="outlined" 
+                fullWidth
+                value={query} 
+                onChange={event => setQuery(event.target.value)} 
+              />
+            </div>
+            <br />
+            <div className='search__buttons'>
+              <Button id="search-button" variant="contained" color="primary" type="submit">Search</Button>
+              <Button id="some-button" variant="contained" color="primary">UselessFeature</Button>
+            </div>
             </form>
           </Grid>
             {showResults 
