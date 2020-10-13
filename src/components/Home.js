@@ -19,6 +19,7 @@ const Home = ({ query, setQuery, classes }) => {
             Kokeile esim. hakuja: "Samsung", "Huawei", "iPhone"
           </Grid>
           <Grid item xs={12} align='center'>
+            <form>
               <div className='search__input'>
                 <InputBase
                   id="outlined-search"
@@ -37,6 +38,7 @@ const Home = ({ query, setQuery, classes }) => {
                 </Link>
                 <Button id="some-button" variant="contained" color="primary">UselessFeature</Button>
               </div>
+            </form>
           </Grid>
         </Grid>
       </Container>

@@ -1,25 +1,32 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import QueryResults from './QueryResults'
+import { Container, Grid } from '@material-ui/core'
+import MinSearch from './MinSearch'
 
 
 const Search = ({ query, setQuery, classes }) => {
-    const [phones, setPhones] = useState(null)
+  const [phones, setPhones] = useState(null)
+  const fetchPhones = async () => {
+    const res = await axios.get(`http://localhost:3002/api/search/${query}`)
+    console.log(res.data)
+    setPhones(res.data)
+    console.log(phones)
+    setQuery('')
+  }
 
-    useEffect(() => {
-        const fetchPhones = async () => {
-            const res = await axios.get(`http://localhost:3002/api/search/${query}`)
-            console.log(res.data)
-            setPhones(res.data)
-            console.log(phones)
-            setQuery('')            
-        }
-        fetchPhones()
-    })
+  useEffect(() => {
+    fetchPhones()
+  }, [])
 
-    return (
+  return (
+    <Container>
+      <Grid container spacing={3}>
+        <MinSearch query={query} setQuery={setQuery} fetchPhones={fetchPhones}/>
         <QueryResults phones={phones} classes={classes} />
-    )
+      </Grid>
+    </Container>
+  )
 }
 
 export default Search
