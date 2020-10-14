@@ -23,7 +23,7 @@ const Search = ({ query, setQuery, classes }) => {
   return (
     <Container>
       <Grid container spacing={3}>
-        <MinSearch query={query} setQuery={setQuery} fetchPhones={fetchPhones}/>
+        <MinSearch query={query} setQuery={setQuery} phones={phones} fetchPhones={fetchPhones}/>
         <QueryResults phones={phones} classes={classes} />
       </Grid>
     </Container>

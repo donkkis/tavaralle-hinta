@@ -1,5 +1,5 @@
 import React from 'react'
-import { VictoryChart, VictoryHistogram, VictoryVoronoiContainer } from 'victory' 
+import { VictoryChart, VictoryHistogram, VictoryVoronoiContainer, VictoryAxis } from 'victory' 
 
 const Histogram = ({ phones }) => {
 
@@ -14,6 +14,8 @@ const Histogram = ({ phones }) => {
     return (
         <div>
             <VictoryChart containerComponent={<VictoryVoronoiContainer labels={labels}/>}>
+                <VictoryAxis label='Price (eur)'/>
+                <VictoryAxis dependentAxis />
                 <VictoryHistogram data={phones.map(p => ({x : p.price}) )}/>
             </VictoryChart>
         </div>

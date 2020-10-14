@@ -1,5 +1,5 @@
 import React from 'react'
-import { VictoryChart, VictoryTheme, VictoryScatter } from 'victory'
+import { VictoryChart, VictoryTheme, VictoryScatter, VictoryAxis, VictoryLabel } from 'victory'
 import zip from 'lodash.zip'
 
 const ScatterPlot = ({ phones }) => {
@@ -32,11 +32,18 @@ const ScatterPlot = ({ phones }) => {
     return <VictoryChart
         theme={VictoryTheme.material}
      >
-    <VictoryScatter
-      style={{ data: { fill: "#c43a31" } }}
-      size={1}
-      data={data}
-    />
+      <VictoryAxis 
+        label='Listing age (d)'
+        axisLabelComponent={<VictoryLabel dy={25} />}
+      />
+      <VictoryAxis dependentAxis /> 
+
+      <VictoryScatter
+        style={{ data: { fill: "#c43a31" } }}
+        size={1}
+        data={data}
+
+      />
   </VictoryChart>
 }
 

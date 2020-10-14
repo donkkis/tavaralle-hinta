@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Container, Grid, Button } from '@material-ui/core';
 import InputBase from '@material-ui/core/InputBase';
 import { Link } from 'react-router-dom'
+import SearchIcon from '@material-ui/icons/Search';
 import '../Styles.css'
 
 const Home = ({ query, setQuery, classes }) => {
@@ -21,6 +22,7 @@ const Home = ({ query, setQuery, classes }) => {
           <Grid item xs={12} align='center'>
             <form>
               <div className='search__input'>
+                <SearchIcon />
                 <InputBase
                   id="outlined-search"
                   label="Search"

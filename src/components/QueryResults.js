@@ -3,9 +3,16 @@ import Summary from './Summary'
 import Histogram from './Histogram'
 import Linechart from './Linechart'
 import ScatterPlot from './ScatterPlot'
-import { Grid, Paper } from '@material-ui/core'
+import { Grid, Paper, CircularProgress } from '@material-ui/core'
 
 const QueryResults = React.memo(({ classes, phones }) => {
+  if (!phones) {
+    return <>
+      <Grid item xs={12}>
+        <CircularProgress />
+      </Grid>
+    </>
+  }
   return (
     <>
       <Grid item sm={6} xs={12}>

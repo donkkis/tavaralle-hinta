@@ -3,7 +3,7 @@ import '../Styles.css'
 import { Grid, Button } from '@material-ui/core'
 import InputBase from '@material-ui/core/InputBase';
 
-const MinSearch = ({ query, setQuery, fetchPhones }) => {
+const MinSearch = ({ query, setQuery, fetchPhones, phones }) => {
   return (
     <Grid item xs={12} align='left'>
         <form onSubmit={fetchPhones}>
