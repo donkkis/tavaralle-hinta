@@ -20,19 +20,22 @@
 }
 
 .search__input__inline {
-    display: flex;
     align-items: left;
     border: 1px solid lightgray;
-    height: 25px;
+    height: 22px;
     padding: 10px 15px;
     border-radius: 999px;
     width: 79vw;
     margin: 0 auto;
     margin-top: 10px;
-    max-width: 200px;
+    max-width: 520px;
 }
 
 .search__input:hover {
+    box-shadow: 0 1px 6px rgba(32,33,36,.28);
+}
+
+.search__input__inline:hover {
     box-shadow: 0 1px 6px rgba(32,33,36,.28);
 }
 

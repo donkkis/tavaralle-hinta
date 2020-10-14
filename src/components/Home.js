@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { Container, Grid, Button, TextField } from '@material-ui/core';
+import React, { useEffect } from 'react'
+import { Container, Grid, Button } from '@material-ui/core';
 import InputBase from '@material-ui/core/InputBase';
-import QueryResults from './QueryResults'
 import { Link } from 'react-router-dom'
-import axios from 'axios';
 import '../Styles.css'
 
-
-
-
 const Home = ({ query, setQuery, classes }) => {
+
+  useEffect(() => {
+    setQuery('')
+  }, [])
+
   return (
     <div className='home__body'>
       <Container>
@@ -36,7 +36,7 @@ const Home = ({ query, setQuery, classes }) => {
                 <Link to='/search'>
                   <Button id="search-button" variant="contained" color="primary" type="submit">Search</Button>
                 </Link>
-                <Button id="some-button" variant="contained" color="primary">UselessFeature</Button>
+                <Button id="some-button" variant="contained" color="primary" onClick={() => alert('Move along, nothing to see here.')}>UselessFeature</Button>
               </div>
             </form>
           </Grid>

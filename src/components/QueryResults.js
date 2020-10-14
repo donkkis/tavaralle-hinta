@@ -3,7 +3,7 @@ import Summary from './Summary'
 import Histogram from './Histogram'
 import Linechart from './Linechart'
 import ScatterPlot from './ScatterPlot'
-import { Container, Grid, Paper } from '@material-ui/core'
+import { Grid, Paper } from '@material-ui/core'
 
 const QueryResults = React.memo(({ classes, phones }) => {
   return (

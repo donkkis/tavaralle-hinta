@@ -7,12 +7,13 @@ import MinSearch from './MinSearch'
 
 const Search = ({ query, setQuery, classes }) => {
   const [phones, setPhones] = useState(null)
-  const fetchPhones = async () => {
+  const fetchPhones = async (event) => {
+    if (event) {
+      event.preventDefault()
+    }
     const res = await axios.get(`http://localhost:3002/api/search/${query}`)
-    console.log(res.data)
     setPhones(res.data)
-    console.log(phones)
-    setQuery('')
+    //setQuery('')
   }
 
   useEffect(() => {
