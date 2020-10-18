@@ -35,7 +35,7 @@ const Home = ({ query, setQuery, classes }) => {
               </div>
               <br />
               <div className='search__buttons'>
-                <Link to={`/search/${query}`}>
+                <Link to={`/search/${query}`} style={{ textDecoration: 'none'}}>
                   <Button id="search-button" variant="contained" color="primary" type="submit">Search</Button>
                 </Link>
                 <Button id="some-button" variant="contained" color="primary" onClick={() => alert('Move along, nothing to see here.')}>UselessFeature</Button>

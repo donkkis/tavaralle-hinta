@@ -1,5 +1,5 @@
 import React from 'react'
-import { VictoryChart, VictoryLine, VictoryVoronoiContainer, VictoryAxis, VictoryLabel } from 'victory'
+import { VictoryChart, VictoryLine, VictoryVoronoiContainer, VictoryAxis, VictoryLabel, VictoryTheme } from 'victory'
 import zip from 'lodash.zip'
 
 const labels = ({ datum }) => (
@@ -25,8 +25,16 @@ const Linechart = ({ phones }) => {
 
     return (
         <div>
-            <VictoryChart scale={{ x: "time"}} containerComponent={<VictoryVoronoiContainer labels={labels}/>}>
-                <VictoryAxis label='Listing date'/>
+            <VictoryChart 
+                scale={{ x: "time"}} 
+                containerComponent={<VictoryVoronoiContainer labels={labels}/>}
+                theme={VictoryTheme.material}
+                height={250}
+                animate={{
+                    duration: 1500
+                  }}
+            >
+                <VictoryAxis label='Listing date' axisLabelComponent={<VictoryLabel dy={25} />}/>
                 <VictoryAxis dependentAxis />
                 <VictoryLine data={data}/>
             </VictoryChart>

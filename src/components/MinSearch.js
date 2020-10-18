@@ -19,7 +19,7 @@ const MinSearch = ({ query, setQuery, fetchPhones, phones }) => {
           />
         </span>
         <span className='search__buttons__inline'>
-          <Link to={`/search/${query}`}>
+          <Link to={`/search/${query}`} style={{ textDecoration: 'none'}}>
             <Button id="search-button" variant="contained" color="primary" type="submit">Search</Button>
           </Link>
         </span>

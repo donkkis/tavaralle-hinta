@@ -31,6 +31,7 @@ const ScatterPlot = ({ phones }) => {
     
     return <VictoryChart
         theme={VictoryTheme.material}
+        height={250}
      >
       <VictoryAxis 
         label='Listing age (d)'
@@ -39,8 +40,7 @@ const ScatterPlot = ({ phones }) => {
       <VictoryAxis dependentAxis /> 
 
       <VictoryScatter
-        style={{ data: { fill: "#c43a31" } }}
-        size={1}
+        size={2}
         data={data}
 
       />
