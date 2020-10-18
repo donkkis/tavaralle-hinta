@@ -3,28 +3,33 @@ import axios from 'axios'
 import QueryResults from './QueryResults'
 import { Container, Grid } from '@material-ui/core'
 import MinSearch from './MinSearch'
-
+import { useHistory, useParams } from 'react-router-dom'
 
 const Search = ({ query, setQuery, classes }) => {
   const [phones, setPhones] = useState(null)
+  const history = useHistory()
+  const execQuery = useParams().query
+
   const fetchPhones = async (event) => {
+    //console.log(history)
     if (event) {
       event.preventDefault()
     }
-    const res = await axios.get(`http://localhost:3002/api/search/${query}`)
+    const res = await axios.get(`http://localhost:3002/api/search/${execQuery}`)
     setPhones(res.data)
-    //setQuery('')
   }
 
   useEffect(() => {
+    //console.log('fetching')
     fetchPhones()
-  }, [])
+    setQuery(execQuery)
+  }, [execQuery])
 
   return (
     <Container>
       <Grid container spacing={3}>
         <MinSearch query={query} setQuery={setQuery} phones={phones} fetchPhones={fetchPhones}/>
-        <QueryResults phones={phones} classes={classes} />
+        <QueryResults execQuery={execQuery} phones={phones} classes={classes} />
       </Grid>
     </Container>
   )

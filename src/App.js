@@ -26,7 +26,7 @@ const App = () => {
   return (
     <Router>
     <Switch>
-      <Route path="/search">
+      <Route path="/search/:query">
         <Search query={query} setQuery={setQuery} classes={classes} />
       </Route>
 

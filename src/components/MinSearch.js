@@ -1,6 +1,7 @@
 import React from 'react'
 import '../Styles.css'
 import { Grid, Button } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 import InputBase from '@material-ui/core/InputBase';
 
 const MinSearch = ({ query, setQuery, fetchPhones, phones }) => {
@@ -18,7 +19,9 @@ const MinSearch = ({ query, setQuery, fetchPhones, phones }) => {
           />
         </span>
         <span className='search__buttons__inline'>
-          <Button id="search-button" variant="contained" color="primary" type="submit">Search</Button>
+          <Link to={`/search/${query}`}>
+            <Button id="search-button" variant="contained" color="primary" type="submit">Search</Button>
+          </Link>
         </span>
         </form>
     </Grid>

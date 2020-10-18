@@ -5,7 +5,7 @@ import Linechart from './Linechart'
 import ScatterPlot from './ScatterPlot'
 import { Grid, Paper, CircularProgress } from '@material-ui/core'
 
-const QueryResults = React.memo(({ classes, phones }) => {
+const QueryResults = React.memo(({ classes, phones, execQuery }) => {
   if (!phones) {
     return <>
       <Grid item xs={12}>
@@ -17,7 +17,7 @@ const QueryResults = React.memo(({ classes, phones }) => {
     <>
       <Grid item sm={6} xs={12}>
         <Paper className={classes.paper} elevation={3}>
-          <Summary phones={phones} />
+          <Summary phones={phones} execQuery={execQuery}/>
         </Paper>
       </Grid>
       <Grid item sm={6} xs={12}>
