@@ -1,14 +1,25 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Grid, Button } from '@material-ui/core';
 import InputBase from '@material-ui/core/InputBase';
 import { Link } from 'react-router-dom'
 import SearchIcon from '@material-ui/icons/Search';
 import '../Styles.css'
+import axios from 'axios'
 
 const Home = ({ query, setQuery, classes }) => {
+  const [listingCount, setListingCount] = useState(null)
+  const [lastUpdate, setLastUpdate] = useState(null)
+
+  const fetchMeta = async (event) => {
+    const count = await axios.get('http://localhost:3002/api/count')
+    const lastUD = await axios.get('http://localhost:3002/api/lastinsert')
+    setListingCount(count.data)
+    setLastUpdate(lastUD.data)
+  }
 
   useEffect(() => {
     setQuery('')
+    fetchMeta()
   }, [])
 
   return (
@@ -41,6 +52,12 @@ const Home = ({ query, setQuery, classes }) => {
                 <Button id="some-button" variant="contained" color="primary" onClick={() => alert('Move along, nothing to see here.')}>UselessFeature</Button>
               </div>
             </form>
+          </Grid>
+          <Grid item xs={12} align='center'>
+            {
+              (listingCount && lastUpdate) &&
+              <>Tietokannassa {listingCount} kohdetta, päivitetty viimeksi: {lastUpdate.created}</>
+            }
           </Grid>
         </Grid>
       </Container>
