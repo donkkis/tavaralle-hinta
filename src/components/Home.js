@@ -11,8 +11,8 @@ const Home = ({ query, setQuery, classes }) => {
   const [lastUpdate, setLastUpdate] = useState(null)
 
   const fetchMeta = async (event) => {
-    const count = await axios.get('http://localhost:3002/api/count')
-    const lastUD = await axios.get('http://localhost:3002/api/lastinsert')
+    const count = await axios.get(`${process.env.REACT_APP_BASE_URL}/count`)
+    const lastUD = await axios.get(`${process.env.REACT_APP_BASE_URL}/lastinsert`)
     setListingCount(count.data)
     setLastUpdate(lastUD.data)
   }

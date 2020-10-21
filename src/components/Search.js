@@ -15,7 +15,7 @@ const Search = ({ query, setQuery, classes }) => {
     if (event) {
       event.preventDefault()
     }
-    const res = await axios.get(`http://localhost:3002/api/search/${execQuery}`)
+    const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/search/${execQuery}`)
     setPhones(res.data)
   }
 
