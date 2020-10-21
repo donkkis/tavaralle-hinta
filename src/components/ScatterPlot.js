@@ -12,15 +12,8 @@ const ScatterPlot = ({ phones }) => {
         return a.map((e,i) => e - b[i]);
     }
 
-    const dateAxis = pricedPhones.map(p => {
-        const dd = p.time_stamp.slice(0, 2)
-        const MM = p.time_stamp.slice(3, 5)
-        const yyyy = p.time_stamp.slice(6, 10)
-        const HH = p.time_stamp.slice(11, 13)
-        const mm = p.time_stamp.slice(14)
-        //days since 1-1-1970
-        return new Date(yyyy, MM-1, dd, HH, mm).getTime() / 86400000
-    })
+    //days since 1-1-1970
+    const dateAxis = pricedPhones.map(p => new Date(p.time_stamp).getTime() / 86400000)
 
     const now = new Array(dateAxis.length).fill(new Date().getTime() / 86400000)
     //time diff in days

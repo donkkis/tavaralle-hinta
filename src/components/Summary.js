@@ -12,7 +12,10 @@ const Summary = React.memo(({ phones, execQuery }) => {
     return (
         <div style={summaryStyle}>
             <h3>Summary: {execQuery} </h3>
-            <p>Count: {phones.length}</p>
+            { phones.length >= 250
+                ? <p>Count: {phones.length}+</p>
+                : <p>Count: {phones.length}</p>
+            }
             <p>Mean Price: {meanBy(phones, 'price')}</p>
             <p>Min Price: {Math.min( ...phones.filter(p => p.price).map(p => p.price) )}</p>
             <p>Max Price: {Math.max( ...phones.filter(p => p.price).map(p => p.price) )}</p>
