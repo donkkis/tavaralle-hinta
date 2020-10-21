@@ -27,3 +27,5 @@ db_.json
 
 # env
 .env
+
+.vscode
