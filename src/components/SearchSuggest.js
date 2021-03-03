@@ -1,64 +1,14 @@
 import React from 'react'
 import Autosuggest from 'react-autosuggest';
+import axios from 'axios'
 
-const languages = [
-    {
-      name: 'C',
-      year: 1972
-    },
-    {
-      name: 'C#',
-      year: 2000
-    },
-    {
-      name: 'C++',
-      year: 1983
-    },
-    {
-      name: 'Clojure',
-      year: 2007
-    },
-    {
-      name: 'Elm',
-      year: 2012
-    },
-    {
-      name: 'Go',
-      year: 2009
-    },
-    {
-      name: 'Haskell',
-      year: 1990
-    },
-    {
-      name: 'Java',
-      year: 1995
-    },
-    {
-      name: 'Javascript',
-      year: 1995
-    },
-    {
-      name: 'Perl',
-      year: 1987
-    },
-    {
-      name: 'PHP',
-      year: 1995
-    },
-    {
-      name: 'Python',
-      year: 1991
-    },
-    {
-      name: 'Ruby',
-      year: 1995
-    },
-    {
-      name: 'Scala',
-      year: 2003
-    }
-  ];
+const fetchTags = async () => {
+    const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/tags`) 
+    return res
+}
+
+let languages
+fetchTags().then(res => languages = res.data)
   
   // https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
   function escapeRegexCharacters(str) {
@@ -73,17 +23,16 @@ const languages = [
     }
   
     const regex = new RegExp('^' + escapedValue, 'i');
-  
-    return languages.filter(language => regex.test(language.name));
+    return languages.filter(language => regex.test(language.tag)).slice(0, 10);
   }
   
   function getSuggestionValue(suggestion) {
-    return suggestion.name;
+    return suggestion.tag;
   }
   
   function renderSuggestion(suggestion) {
     return (
-      <span>{suggestion.name}</span>
+      <span>{suggestion.tag}</span>
     );
   }
   
