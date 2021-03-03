@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Grid, Button } from '@material-ui/core';
 import InputBase from '@material-ui/core/InputBase';
+import SearchSuggest from './SearchSuggest';
 import { Link } from 'react-router-dom'
 import SearchIcon from '@material-ui/icons/Search';
 import '../Styles.css'
@@ -34,7 +35,7 @@ const Home = ({ query, setQuery, classes }) => {
             <form>
               <div className='search__input'>
                 <SearchIcon />
-                <InputBase
+                {/* <InputBase
                   id="outlined-search"
                   label="Search"
                   type="search"
@@ -42,7 +43,8 @@ const Home = ({ query, setQuery, classes }) => {
                   fullWidth
                   value={query}
                   onChange={event => setQuery(event.target.value)}
-                />
+                /> */}
+                <SearchSuggest onChange={event => setQuery(event.target.value)}/>
               </div>
               <br />
               <div className='search__buttons'>
