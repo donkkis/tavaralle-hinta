@@ -35,15 +35,6 @@ const Home = ({ query, setQuery, classes }) => {
             <form>
               <div className='search__input'>
                 <SearchIcon />
-                {/* <InputBase
-                  id="outlined-search"
-                  label="Search"
-                  type="search"
-                  variant="outlined"
-                  fullWidth
-                  value={query}
-                  onChange={event => setQuery(event.target.value)}
-                /> */}
                 <SearchSuggest onChange={event => setQuery(event.target.value)}/>
               </div>
               <br />

@@ -96,8 +96,6 @@ const languages = [
         suggestions: []
       };
       this.changeParent = onChange
-      console.log('moi')
-      console.log(this.changeParent)  
     }
   
     onChange = (event, { newValue, method }) => {
@@ -122,7 +120,6 @@ const languages = [
     render() {
       const { value, suggestions } = this.state;
       const inputProps = {
-        placeholder: "Type 'c'",
         value,
         onChange: this.onChange
       };
