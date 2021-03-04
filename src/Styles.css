@@ -55,7 +55,8 @@ position: relative;
 }
 
 .react-autosuggest__input {
-width: 240px;
+width: 79vw;
+max-width: 350px;
 height: 15px;
 padding: 10px 10px;
 font-family: Helvetica, sans-serif;
