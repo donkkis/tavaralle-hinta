@@ -35,7 +35,7 @@ const Home = ({ query, setQuery, classes }) => {
             <form>
               <div className='search__input'>
                 <SearchIcon />
-                <SearchSuggest onChange={event => setQuery(event.target.value)}/>
+                <SearchSuggest onChange={newValue => setQuery(newValue)}/>
               </div>
               <br />
               <div className='search__buttons'>

@@ -51,7 +51,7 @@ fetchTags().then(res => languages = res.data)
       this.setState({
         value: newValue
       });
-      this.changeParent(event)
+      this.changeParent(newValue)
     };
     
     onSuggestionsFetchRequested = ({ value }) => {
