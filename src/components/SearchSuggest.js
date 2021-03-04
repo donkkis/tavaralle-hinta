@@ -1,6 +1,7 @@
 import React from 'react'
 import Autosuggest from 'react-autosuggest';
 import axios from 'axios'
+import history from '../history'
 
 const fetchTags = async () => {
     const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/tags`) 
@@ -46,7 +47,7 @@ fetchTags().then(res => languages = res.data)
       };
       this.changeParent = onChange
     }
-  
+
     onChange = (event, { newValue, method }) => {
       this.setState({
         value: newValue
@@ -65,6 +66,13 @@ fetchTags().then(res => languages = res.data)
         suggestions: []
       });
     };
+
+    onSuggestionSelected = (event, { suggestion, method }) => {
+      if (method === 'enter') {
+        history.push(`/search/${suggestion.tag}`)
+        window.location.reload()
+      }
+    }
   
     render() {
       const { value, suggestions } = this.state;
@@ -78,6 +86,7 @@ fetchTags().then(res => languages = res.data)
           suggestions={suggestions}
           onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
           onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+          onSuggestionSelected={this.onSuggestionSelected}
           getSuggestionValue={getSuggestionValue}
           renderSuggestion={renderSuggestion}
           inputProps={inputProps} />
